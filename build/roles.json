@@ -1,0 +1,641 @@
+[
+  {
+    "id": "president-gsm",
+    "title": "President, Global Student Mobility",
+    "fn": "Business head",
+    "icon": "ph-globe-hemisphere-west",
+    "hook": "Own the full P&L of MSM Unify's study abroad business, in every market.",
+    "chips": [
+      "Full P&L",
+      "Gurugram, on-site"
+    ],
+    "meta": "Gurugram, Haryana, India (on-site)",
+    "story": [
+      "Study abroad is the business most people know MSM Unify for. It has many corridors and needs one owner. India outbound is the base. The next job is to open the corridors beyond it and run every market on numbers you can see each week.",
+      "You will own the whole student journey from lead generation to enrollment, set the partnership approach with universities, and build the regional and country teams that carry it. The weekly business review is yours to lead."
+    ],
+    "owns": [
+      "Revenue growth across every source and destination market",
+      "New student mobility corridors beyond India outbound",
+      "The complete journey from lead generation to enrollment",
+      "University partnership strategy and its execution",
+      "Regional and country teams, from hiring to mentoring",
+      "Conversion, profitability and revenue per student"
+    ],
+    "measuresTitle": "How success is measured",
+    "measures": [
+      "Overall revenue growth and profitability",
+      "Expansion into new international corridors",
+      "Lead-to-enrollment conversion and revenue per student",
+      "Market-level P&L and growth in strategic university partnerships"
+    ],
+    "bring": [
+      "Led a large, revenue-driven business with full P&L ownership",
+      "Deep background in student mobility, international education or study abroad",
+      "Managed distributed teams across several countries",
+      "Decisions grounded in data, with an eye for execution"
+    ],
+    "why": "Own the numbers. Own the execution. Own the outcomes.",
+    "share": {
+      "title": "President, Global Student Mobility",
+      "desc": "Own the full P&L of a study abroad business that has supported 225,000 students. An open leadership seat at MSM Unify."
+    },
+    "thanks": {
+      "lead": "This seat owns the full P&L of MSM Unify's study abroad business, from India outbound to the corridors we have not opened yet.",
+      "ready": "Come ready to name the first corridor you would open, and the number that tells you it is working."
+    },
+    "ninety": {
+      "q": "Which corridor would you open first, and what would you change in your first 90 days?",
+      "chips": [
+        "Open a new corridor",
+        "Fix lead-to-enrollment conversion",
+        "Raise revenue per student",
+        "Rebuild the weekly business review",
+        "Strengthen university partnerships"
+      ]
+    }
+  },
+  {
+    "id": "president-enterprise",
+    "title": "President, Enterprise Solutions",
+    "fn": "Business head",
+    "icon": "ph-buildings",
+    "hook": "Build a Rs 100 Cr enterprise business, starting with a Rs 40 to 60 Cr revenue engine.",
+    "chips": [
+      "Rs 40-60 Cr annual closures",
+      "Gurgaon, national role"
+    ],
+    "meta": "Gurgaon, national role. Enterprise Solutions division",
+    "story": [
+      "MSM Unify Enterprise Solutions helps institutions, enterprises and governments build future-ready talent ecosystems. The next growth phase is a business targeting Rs 100 Cr or more in annual revenue, and this role builds its core.",
+      "The work is consultative and multi-year: CXO relationships, long sales cycles, milestone-based contracts, and close work with solutioning and delivery. The sectors in play are BFSI, government, universities and skilling."
+    ],
+    "owns": [
+      "The national enterprise and institutional sales strategy",
+      "A Rs 120 to 150 Cr qualified pipeline, with forecasts that hold",
+      "Rs 40 to 60 Cr in annual closures",
+      "The full deal cycle, from pitch to negotiation to close",
+      "CXO relationships and strategic alliances",
+      "A sales team built, coached and held to KPIs"
+    ],
+    "milestones": [
+      {
+        "when": "First 90 days",
+        "text": "Build the pipeline and onboard key accounts."
+      },
+      {
+        "when": "Month 6",
+        "text": "Close Rs 15 to 20 Cr."
+      },
+      {
+        "when": "Month 12",
+        "text": "Reach Rs 40 to 60 Cr in annual closures."
+      }
+    ],
+    "bring": [
+      "12 to 18 years or more in enterprise sales, SaaS, consulting or edtech",
+      "A record of Rs 25 Cr or more in annual closures",
+      "A CXO network across enterprise or institutional sectors",
+      "Experience scaling a large sales team"
+    ],
+    "why": "A Rs 100 Cr business, built from the ground up, with fast decisions and direct access to leadership.",
+    "share": {
+      "title": "President, Enterprise Solutions",
+      "desc": "Build a Rs 100 Cr enterprise business, starting with a Rs 40 to 60 Cr revenue engine. CXO deals, multi-year contracts, direct access to leadership."
+    },
+    "thanks": {
+      "lead": "This seat builds MSM Unify's enterprise and institutional business, with a Rs 40 to 60 Cr revenue engine as the first goal.",
+      "ready": "Come ready to talk about the three accounts you would pursue first, and why each would sign a multi-year deal."
+    },
+    "ninety": {
+      "q": "Which accounts would you pursue first, and what would you change in your first 90 days?",
+      "chips": [
+        "Build the qualified pipeline",
+        "Win three anchor accounts",
+        "Hire the first sales leaders",
+        "Pick the sectors to enter first",
+        "Set forecast discipline"
+      ]
+    }
+  },
+  {
+    "id": "ctpo",
+    "title": "Chief Technology and Product Officer",
+    "fn": "C-suite",
+    "icon": "ph-cpu",
+    "hook": "One owner for technology and product, with AI built into how the company competes.",
+    "chips": [
+      "99.5% uptime target",
+      "Reports to the CEO"
+    ],
+    "meta": "Reports to the CEO",
+    "story": [
+      "This is a builder's role. MSM Unify is growing in volume, reach and complexity, and the technology decisions of the next 12 to 24 months decide whether it scales with quality or gets held back by fragmented systems.",
+      "The CTPO unifies product and platform strategy, owns the roadmap, protects platform reliability as data and regulatory complexity grow, and runs a portfolio-wide AI roadmap that reaches from workflow automation to regulatory document processing."
+    ],
+    "owns": [
+      "A 12 to 24 month product roadmap tied to institutional priorities",
+      "Platform architecture and a 99.5% or higher uptime target",
+      "Incident response, monitoring and disaster recovery",
+      "The AI adoption roadmap, its training and its governance",
+      "Adoption metrics and change management for every rollout",
+      "Delivery cadence across in-house, vendor and offshore teams"
+    ],
+    "measuresTitle": "What the role is accountable for",
+    "measures": [
+      "A roadmap the whole business can read and trust",
+      "Releases on a published calendar, reported to the CEO every month",
+      "AI tools piloted, scaled and used across functions",
+      "Adoption, onboarding and satisfaction tracked for every product"
+    ],
+    "bring": [
+      "10 or more years in technology leadership, 5 or more at C-suite or VP level",
+      "Owned a full product lifecycle in a regulated or compliance-heavy setting",
+      "Hands-on record of putting AI or automation into operations",
+      "Cloud, SaaS, API and DevOps depth, plus security fundamentals",
+      "Managed hybrid teams that include offshore developers",
+      "The Builder-Visionary and the Translator: calm intensity, plain language, and a habit of testing with real users"
+    ],
+    "why": "Build the infrastructure, the products and the engineering culture for a company that is scaling fast.",
+    "share": {
+      "title": "Chief Technology and Product Officer",
+      "desc": "One owner for technology and product on a platform that connects 10,000 agent and channel partners with 400 institutions. AI built in, not bolted on."
+    },
+    "thanks": {
+      "lead": "This seat owns technology and product together: the roadmap, the platform's reliability, and an AI plan that runs inside operations.",
+      "ready": "Come ready to tell us what you would ship first, and what you would refuse to ship until it is safe."
+    },
+    "ninety": {
+      "q": "What would you ship first, and what would you refuse to ship until it is safe?",
+      "chips": [
+        "Publish a 12 month roadmap",
+        "Lock platform reliability",
+        "Start the AI roadmap",
+        "Fix delivery cadence with vendors",
+        "Measure adoption"
+      ]
+    }
+  },
+  {
+    "id": "csto",
+    "title": "Chief Strategy and Transformation Officer",
+    "fn": "C-suite",
+    "icon": "ph-compass",
+    "hook": "The Founder and Director's strategic right hand, hired to execute rather than to plan.",
+    "chips": [
+      "Founder Office",
+      "Reports to the Founder and Director"
+    ],
+    "meta": "Global, hybrid or remote-friendly. Reports to the Founder and Director",
+    "story": [
+      "MSM Unify is building a global education and technology platform across student mobility, digital enrollments, OPM, enterprise solutions and institutional partnerships in markets around the world. It is scaling fast and launching new verticals.",
+      "The CSTO runs the Founder Office rhythm, redesigns the organization where it slows down, and makes sure AI and automation show up as measured productivity. It is an execution role with full ownership."
+    ],
+    "owns": [
+      "Execution of the Founder's strategic priorities and growth roadmap",
+      "Founder Office reviews and the governance cadence",
+      "Enterprise-wide transformation, restructuring and operating models",
+      "AI and digital transformation that is measurable and commercially viable",
+      "KPIs, dashboards and performance tracking",
+      "M&A, partnerships, due diligence and integration planning"
+    ],
+    "measuresTitle": "How success is measured",
+    "measures": [
+      "Strategic initiatives delivered with measurable outcomes",
+      "A visible execution rhythm and fewer bottlenecks",
+      "Productivity gains from AI and automation",
+      "Readiness for the next growth phase"
+    ],
+    "bring": [
+      "15 or more years in strategy, transformation, consulting or leadership",
+      "Large-scale transformation delivered end to end",
+      "Strong grounding in AI, digital and operational scaling",
+      "Experience working directly with founders and CEOs",
+      "Exposure to multiple global markets"
+    ],
+    "why": "A direct line to the Founder and Director, a global organization to transform, and full ownership of the result.",
+    "share": {
+      "title": "Chief Strategy and Transformation Officer",
+      "desc": "The Founder and Director's strategic right hand. Run the execution rhythm of a global education business. Hired to execute, not to plan."
+    },
+    "thanks": {
+      "lead": "This seat is the Founder and Director's strategic right hand, built to execute: the review rhythm, the transformation work and the numbers behind both.",
+      "ready": "Come ready with one bottleneck you found in a growing organization, how you removed it, and the number it moved."
+    },
+    "ninety": {
+      "q": "Which bottleneck would you remove first, and what would you change in your first 90 days?",
+      "chips": [
+        "Start the Founder Office review rhythm",
+        "Build the KPI dashboard",
+        "Pick the first transformation",
+        "Map where decisions stall",
+        "Set AI productivity targets"
+      ]
+    }
+  },
+  {
+    "id": "president-grad",
+    "title": "President, MSM Grad",
+    "fn": "Business head",
+    "icon": "ph-graduation-cap",
+    "hook": "Run MSM Grad's online higher education and workforce business end to end.",
+    "chips": [
+      "Revenue and EBITDA",
+      "Noida / Delhi NCR"
+    ],
+    "meta": "Noida / Delhi NCR, on-site. Reports to the Founder and Director",
+    "story": [
+      "MSM Grad sits where online degrees, enterprise learning and workforce development meet. It needs a president who sets the vision, owns revenue and EBITDA, and runs the functions that make a learner's journey work.",
+      "That means admissions, student success, academic operations, placements, technology and finance, plus the university, corporate and industry partnerships that bring programs to market in India and abroad."
+    ],
+    "owns": [
+      "The long-term vision and strategy for MSM Grad",
+      "The full P&L: revenue, EBITDA, budgets and forecasts",
+      "B2B, B2C, enterprise learning, online programs and workforce development",
+      "New programs, new revenue streams and new markets",
+      "Governance, SOPs and quality across all operating functions",
+      "An executive team, and the succession plan behind it"
+    ],
+    "bring": [
+      "18 to 25 years of experience, 10 or more in senior executive roles",
+      "Full P&L ownership and a record of scaling a business",
+      "Background in edtech, higher education, online learning or workforce development",
+      "MBA or PGDM preferred"
+    ],
+    "why": "Complete business ownership, a direct line to the Founder and Director, and the chance to shape digital education across domestic and international markets.",
+    "share": {
+      "title": "President, MSM Grad",
+      "desc": "Run MSM Grad end to end: revenue, EBITDA and the whole learner journey across online degrees and workforce development."
+    },
+    "thanks": {
+      "lead": "This seat runs MSM Grad end to end, from vision and EBITDA to admissions, student success and placements.",
+      "ready": "Come ready to explain how you would grow an online higher education business, and how you would know the learner journey is working."
+    },
+    "ninety": {
+      "q": "How would you grow MSM Grad, and what would you change in your first 90 days?",
+      "chips": [
+        "Read the P&L line by line",
+        "Fix admissions conversion",
+        "Strengthen student success and placements",
+        "Open one new partnership",
+        "Launch one new program"
+      ]
+    }
+  },
+  {
+    "id": "president-eduverse",
+    "title": "President, Eduverse Summits",
+    "fn": "Business head",
+    "icon": "ph-presentation-chart",
+    "hook": "Own the commercial engine of a global summit series, from sponsors to revenue.",
+    "chips": [
+      "Global sponsorship",
+      "Team build"
+    ],
+    "meta": "Global sales and sponsorship",
+    "story": [
+      "Eduverse summits bring universities, partners and industry leaders from international education into one room. This leader owns the commercial side: the sponsorship strategy, the proposals, the contracts and the revenue behind every event.",
+      "You will build a global sales and sponsorship team, work with events and marketing so sponsors get visible results before, during and after each summit, and represent the series across the industry."
+    ],
+    "owns": [
+      "A global sponsorship strategy tied to organizational goals",
+      "Relationships with current and prospective sponsors",
+      "Proposals and contract negotiation, with legal and finance",
+      "Revenue targets, including upsell and cross-sell",
+      "Sponsor activation and visibility across each event",
+      "A global team, with reviews and training"
+    ],
+    "bring": [
+      "A graduate or postgraduate degree in education, business, international relations or engineering",
+      "Extensive international education experience: partnerships, recruitment or edtech",
+      "Led teams and set strategy at global scale",
+      "Experience running summits, conferences or large events"
+    ],
+    "why": "A commercial leadership seat in front of senior leadership, with a global stage to build on.",
+    "share": {
+      "title": "President, Eduverse Summits",
+      "desc": "Own the commercial engine of a global summit series. Sponsors, proposals, contracts and revenue, with a team you build."
+    },
+    "thanks": {
+      "lead": "This seat owns the commercial side of Eduverse summits: sponsors, proposals, contracts and revenue.",
+      "ready": "Come ready with one sponsorship deal you built from the first call to the signed contract."
+    },
+    "ninety": {
+      "q": "Which sponsors would you win first, and what would you change in your first 90 days?",
+      "chips": [
+        "Rebuild the sponsor pipeline",
+        "Redesign sponsor packages",
+        "Hire the sponsorship team",
+        "Improve sponsor results after each event",
+        "Add one new revenue line"
+      ]
+    }
+  },
+  {
+    "id": "director-b2c",
+    "title": "Director, B2C Operations",
+    "fn": "Director",
+    "icon": "ph-users-three",
+    "hook": "Build the direct-to-student channel from first enquiry to enrolment, starting from zero.",
+    "chips": [
+      "150-person team to build",
+      "Two counselling hubs"
+    ],
+    "meta": "Gurugram, with oversight of a second hub in South India. Reports to the Executive Director, Global Partnerships",
+    "story": [
+      "MSM Unify is building a direct-to-student channel across GMO and MSM Unify Mentors. Source markets are South Asia, Africa, South East Asia and the Middle East. The channel is being built from the ground up.",
+      "You will stand up a counselling, lead qualification and B2C marketing organization of more than 150 people across Gurugram and a second hub in South India, organized by language and source market. You are accountable for enrolments, funnel conversion and acquisition cost."
+    ],
+    "owns": [
+      "B2C enrolment targets by intake and source market",
+      "The full funnel: lead, counselled, application, offer, deposit, enrolment",
+      "Offer-to-deposit conversion in a channel with no agent chasing the deposit",
+      "A high-volume lead qualification and telecalling function",
+      "Fully loaded acquisition cost, with Marketing",
+      "CRM discipline, and the move from manual workflows to a B2C platform"
+    ],
+    "milestones": [
+      {
+        "when": "First 6 months",
+        "text": "Both sites operating, the team hired to plan, funnel reporting live and reviewed weekly."
+      },
+      {
+        "when": "Month 12",
+        "text": "Enrolments at or above plan across the January, May and September intakes, with acquisition cost inside plan."
+      }
+    ],
+    "bring": [
+      "12 or more years in international education or high-volume consumer education",
+      "5 or more years leading counselling, recruitment or admissions operations",
+      "Built or scaled a direct-to-consumer counselling operation to 100 or more people",
+      "Command of acquisition economics and hands-on CRM use",
+      "Experience leading multi-site, multilingual teams"
+    ],
+    "why": "A senior seat shaping a core growth line, with scope to build the systems, the teams and the standards.",
+    "share": {
+      "title": "Director, B2C Operations",
+      "desc": "Build a direct-to-student channel from zero: a team of more than 150 across two counselling hubs, from first enquiry to enrolment."
+    },
+    "thanks": {
+      "lead": "This seat builds MSM Unify's direct-to-student channel from zero, from first enquiry to enrolment.",
+      "ready": "Come ready to talk about how you would hire your first fifty counsellors, and the funnel number you would review every week."
+    },
+    "ninety": {
+      "q": "How would you build the team and the funnel in your first 90 days?",
+      "chips": [
+        "Hire the first counsellors",
+        "Stand up lead qualification",
+        "Set the weekly funnel review",
+        "Cut acquisition cost",
+        "Fix offer-to-deposit follow-up"
+      ]
+    }
+  },
+  {
+    "id": "president-campusos",
+    "title": "President, MSM CampusOS",
+    "fn": "Business head",
+    "icon": "ph-squares-four",
+    "hook": "Lead MSM CampusOS as a business: the operating system for higher education institutions.",
+    "chips": [
+      "Full P&L",
+      "Canada, global remit"
+    ],
+    "share": {
+      "title": "President, MSM CampusOS",
+      "desc": "Lead MSM CampusOS as a business: an operating system for universities, from admissions to alumni. Full P&L, a team to build, a global remit."
+    },
+    "thanks": {
+      "lead": "This seat leads MSM CampusOS as a business, owning its revenue and margin and holding delivery to measurable outcomes in every partner university.",
+      "ready": "Come ready to tell us which function you would lead with at a new university, and how you would prove it worked."
+    },
+    "ninety": {
+      "q": "Which function would you lead with, and what would you change in your first 90 days?",
+      "chips": [
+        "Approve strategy, packaging and pricing",
+        "Build the CampusOS leadership team",
+        "Open the first partnership pipeline",
+        "Agree an outcome baseline with each partner",
+        "Set the MSM Aventra roadmap with Product"
+      ]
+    },
+    "meta": "Canada, with a global remit. Reports to the Founder and Director",
+    "story": [
+      "MSM CampusOS is MSM Unify's operating system for higher education institutions. It runs core institutional functions alongside the institution's own leadership, across four areas: Acquire, Operate, Engage and Infrastructure, including MSM Aventra, a unified CRM, SIS and LMS platform built for academic institutions.",
+      "Partnerships follow one principle: start with one function, measure the outcome, then decide. The President owns revenue and margin, sets strategy and go-to-market, opens partnerships with university leadership, and holds delivery to measurable outcomes in every partner institution."
+    ],
+    "owns": [
+      "The CampusOS P&L: annual revenue, contract value, margin and renewals, by function and market",
+      "Strategy: which functions to lead with in each market, how engagements are scoped and priced, and how one function grows into many",
+      "The partnership pipeline, and senior conversations with university Presidents, Vice-Chancellors, Provosts, COOs and CFOs through to multi-year agreements",
+      "Every engagement on the CampusOS model: a baseline at the start, outcomes measured against it",
+      "Delivery standards for all 12 functions, with service levels and governance reviews with each partner",
+      "The MSM Aventra roadmap, with Product and Technology",
+      "The CampusOS leadership team, function heads and implementation teams"
+    ],
+    "milestones": [
+      {
+        "when": "Month 6",
+        "text": "Strategy, service packaging and pricing approved. Leadership team in place with KPIs for each function. A qualified pipeline in the priority markets, and the first partnerships signed, each with an agreed outcome baseline."
+      },
+      {
+        "when": "Month 12",
+        "text": "Revenue and margin targets delivered, partners extending from their first function into more, measured gains reported against baseline for every live partnership, and MSM Aventra implementations live and referenceable."
+      }
+    ],
+    "bring": [
+      "15 or more years in higher education services, education technology or institutional consulting, 5 or more in general management with full P&L ownership",
+      "A record of selling and delivering multi-year service or technology partnerships to universities or colleges",
+      "Relationships with university leadership in at least two of Canada, the US, the UK, Europe, Australia or India",
+      "Working knowledge of university operations, from admissions and registry to finance, HR and student services",
+      "Experience implementing or scaling CRM, SIS or LMS platforms at institutional scale",
+      "Led large teams across more than one country, including teams based in India",
+      "Based in Canada and eligible to work there, ready to travel often, including to Gurugram"
+    ],
+    "why": "A direct line to the Founder and Director, full ownership of the CampusOS business, and the reach of 400 institutional partners."
+  },
+  {
+    "id": "director-gsm-sa-gmo",
+    "title": "Director, Global Student Mobility (South Asia and GCC), GMO",
+    "fn": "Director",
+    "icon": "ph-map-pin",
+    "hook": "Own the enrolment outcomes of MSM Unify's recruitment office across South Asia and the GCC.",
+    "chips": [
+      "12 source markets",
+      "Gurugram, in office"
+    ],
+    "share": {
+      "title": "Director, Global Student Mobility (South Asia and GCC), GMO",
+      "desc": "Own enrolment outcomes across 12 source markets in South Asia and the GCC. Lead the field team, the agent network and the numbers."
+    },
+    "thanks": {
+      "lead": "This seat is MSM Unify's recruitment office for South Asia and the GCC: twelve source markets, a field team, an agent network and the enrolment targets partner institutions rely on.",
+      "ready": "Come ready to talk about which markets you would fix first, and what a forecast your partner institutions can trust looks like to you."
+    },
+    "ninety": {
+      "q": "Which markets would you fix first, and what would you change in your first 90 days?",
+      "chips": [
+        "Set territory plans for every market",
+        "Re-engage or replace inactive agents",
+        "Build a forecast partners trust",
+        "Close conversion gaps early",
+        "Open the GCC as a source region"
+      ]
+    },
+    "meta": "Gurugram, India (in office). Reports to the Executive Director, Global Partnerships. Covers India, Nepal, Sri Lanka, Bangladesh, Bhutan, Pakistan and the GCC",
+    "story": [
+      "Under the Global Marketing Office model, MSM Unify acts as the in-market recruitment office for its partner institutions. This seat owns the enrolment outcomes those institutions rely on, across twelve source markets in South Asia and the GCC.",
+      "You lead a field team of Regional Recruitment Managers, run the agent network in every market, and work with the destination Heads of Market and Enrollment to turn applications into deposits and enrolments. It is the senior point of accountability for the region's targets, team and budget."
+    ],
+    "owns": [
+      "Annual enrolment and tuition deposit targets, by intake, destination and source market",
+      "The Regional Recruitment Managers: hiring, coaching, a territory plan for each and monthly reviews",
+      "The agent network in every market, from onboarding to exiting non-performing or non-compliant agents",
+      "The pipeline from application to offer, deposit, visa and enrolment, with early action on conversion gaps",
+      "Application quality and compliance: document integrity, genuine student checks and visa requirements",
+      "The regional budget for travel, events and marketing, against an agreed cost per enrolment"
+    ],
+    "milestones": [
+      {
+        "when": "Month 6",
+        "text": "Regional team in place, with territory plans, targets and a review rhythm running in every market. Active agents mapped by market, and inactive partners re-engaged or replaced."
+      },
+      {
+        "when": "Month 12",
+        "text": "Targets delivered, conversion improved on the prior year, the GCC contributing as a source region, and partner institutions renewing or expanding their GMO scope."
+      }
+    ],
+    "bring": [
+      "12 or more years in international student recruitment, 5 or more leading recruitment across several South Asian source markets",
+      "A record of delivering enrolment targets through agent channels for universities or colleges in Canada, the US, the UK, Europe, Australia or New Zealand",
+      "An established agent network across India and at least two other markets in the region",
+      "Led large field teams across several cities and countries",
+      "Strong command of CRM-based pipeline management, forecasting and reporting",
+      "Based in India, ready to work from Gurugram and to travel often across the region"
+    ],
+    "why": "A senior seat reporting to the Executive Director, Global Partnerships, with full ownership of the region's results and the mandate and budget to build your own team."
+  },
+  {
+    "id": "director-gsm-sea-gmo",
+    "title": "Director, Global Student Mobility (South East Asia), GMO",
+    "fn": "Director",
+    "icon": "ph-map-pin",
+    "hook": "Build MSM Unify's recruitment office for South East Asia, a region that now carries its own targets.",
+    "chips": [
+      "4 markets",
+      "Ho Chi Minh City"
+    ],
+    "share": {
+      "title": "Director, Global Student Mobility (South East Asia), GMO",
+      "desc": "Build MSM Unify's recruitment office across Vietnam, the Philippines, Indonesia and Thailand. Hire the team, grow the agents, own the targets."
+    },
+    "thanks": {
+      "lead": "This seat builds MSM Unify's recruitment office for South East Asia: Vietnam, the Philippines, Indonesia and Thailand, with a team and an agent base still to hire and grow.",
+      "ready": "Come ready to name the market you would start in, and how you would find and vet your first agents there."
+    },
+    "ninety": {
+      "q": "Which market would you start in, and what would you change in your first 90 days?",
+      "chips": [
+        "Hire the first Regional Recruitment Managers",
+        "Vet and train the first agents",
+        "Set territory plans and targets",
+        "Share a first intake forecast",
+        "Match programs to demand in each market"
+      ]
+    },
+    "meta": "Ho Chi Minh City, Vietnam (market-based, reporting into Gurugram). Reports to the Executive Director, Global Partnerships. Covers Vietnam, the Philippines, Indonesia and Thailand",
+    "story": [
+      "South East Asia now carries its own targets. Under the Global Marketing Office model, MSM Unify acts as the in-market recruitment office for its partner institutions, and this seat owns their enrolment outcomes from Vietnam, the Philippines, Indonesia and Thailand.",
+      "You hire the Regional Recruitment Managers, build the agent network market by market, and work with the destination Heads of Market and Enrollment to convert applications into deposits and enrolments."
+    ],
+    "owns": [
+      "Annual enrolment and tuition deposit targets, by intake, destination and source market",
+      "The Regional Recruitment Managers in each market, hired, coached and held to a territory plan",
+      "The agent network, built market by market: identify, onboard, train, activate and exit where needed",
+      "Each partner institution's programs, entry requirements and scholarships, matched to demand in each market",
+      "In-market presence: agent trainings, education fairs, school outreach and institution delegation visits",
+      "The pipeline from application to offer, deposit, visa and enrolment, plus the regional budget"
+    ],
+    "milestones": [
+      {
+        "when": "Month 6",
+        "text": "Regional Recruitment Managers hired and productive in the priority markets. A vetted, trained agent base active in each of the four markets. The first intake forecast shared with partner institutions."
+      },
+      {
+        "when": "Month 12",
+        "text": "Targets delivered for the year's intakes, all four markets contributing enrolments with no single market carrying the region, and conversion in line with MSM Unify's established regions."
+      }
+    ],
+    "bring": [
+      "10 or more years in international student recruitment, 4 or more leading recruitment across more than one South East Asian source market",
+      "A record of delivering enrolment targets through agent channels for universities or colleges in Canada, the US, the UK, Europe, Australia or New Zealand",
+      "An established agent network in Vietnam and at least one other market in the region",
+      "Built a team and an agent base in a new or underdeveloped market",
+      "Strong command of CRM-based pipeline management, forecasting and reporting",
+      "Fluent in English, based in or ready to relocate to Ho Chi Minh City, and ready to travel often across the region"
+    ],
+    "why": "Build a region from the ground up, with full ownership of its results and the mandate and budget to shape your own team."
+  },
+  {
+    "id": "director-gsm-sea-marketplace",
+    "title": "Director, Global Student Mobility (South East Asia), Marketplace",
+    "fn": "Director",
+    "icon": "ph-map-pin",
+    "hook": "Grow MSM Unify's Marketplace in South East Asia: agents, applications and enrolments.",
+    "chips": [
+      "4 markets",
+      "Ho Chi Minh City"
+    ],
+    "share": {
+      "title": "Director, Global Student Mobility (South East Asia), Marketplace",
+      "desc": "Grow MSM Unify's Marketplace across Vietnam, the Philippines, Indonesia and Thailand. Win agents, lift applications, own the enrolments."
+    },
+    "thanks": {
+      "lead": "This seat grows MSM Unify's Marketplace in South East Asia: signing agents, lifting the share who are active each intake, and owning applications through to enrolment.",
+      "ready": "Come ready to explain how you would turn signed agents into active ones, and which institutions you would steer them to first."
+    },
+    "ninety": {
+      "q": "How would you turn signed agents into active ones, and what would you change in your first 90 days?",
+      "chips": [
+        "Sign and train agents in each market",
+        "Measure active agents every intake",
+        "Steer agents to high-demand programs",
+        "Set territory plans and targets",
+        "Track conversion with Marketplace Services"
+      ]
+    },
+    "meta": "Ho Chi Minh City, Vietnam (market-based, reporting into Gurugram). Reports to the Executive Director, Global Partnerships. Covers Vietnam, the Philippines, Indonesia and Thailand",
+    "story": [
+      "Marketplace gives recruitment agents and counsellors access to a broad portfolio of partner institutions through one platform, supported by MSM Unify's admissions and conversion services. This seat builds that business in Vietnam, the Philippines, Indonesia and Thailand.",
+      "You own agent acquisition, application volume and enrolment outcomes, and lead the Regional Head and Regional Recruitment Managers who deliver them. It is the senior point of accountability for the region's Marketplace targets, team and budget."
+    ],
+    "owns": [
+      "Annual application, tuition deposit and enrolment targets, by intake, destination and source market",
+      "The Regional Head and Regional Recruitment Managers, each with a territory plan and monthly reviews",
+      "The agent base in every market: sign, onboard, train, and lift the share of agents who are active each intake",
+      "The regional destination and institution mix, so agents are steered to programs with strong demand and conversion",
+      "Applications moved to offer, deposit, visa and enrolment, with Marketplace Services",
+      "Agent engagement in market: trainings, roadshows, education fairs and institution delegation visits",
+      "Application quality and compliance, including agent due diligence, plus the regional budget"
+    ],
+    "milestones": [
+      {
+        "when": "Month 6",
+        "text": "Regional team in place across the priority markets. An agent base signed and trained in each of the four markets, with a clear measure of active agents. Application flow established for the upcoming intakes."
+      },
+      {
+        "when": "Month 12",
+        "text": "Targets delivered, a growing share of signed agents submitting applications each intake, all four markets contributing enrolments, and conversion in line with MSM Unify's established regions."
+      }
+    ],
+    "bring": [
+      "10 or more years in international student recruitment, 4 or more leading B2B agent sales across more than one South East Asian source market",
+      "A record of growing application and enrolment volume through agent networks, ideally for an aggregator, marketplace or multi-institution recruiter",
+      "An established agent network in Vietnam and at least one other market in the region",
+      "Built a team and an agent base in a new or underdeveloped market",
+      "Strong command of CRM-based pipeline management, forecasting and reporting",
+      "Fluent in English, based in or ready to relocate to Ho Chi Minh City, and ready to travel often across the region"
+    ],
+    "why": "Build a region from the ground up, with full ownership of its results and the mandate and budget to shape your own team."
+  }
+]
