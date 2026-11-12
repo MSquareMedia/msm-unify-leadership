@@ -275,6 +275,36 @@ jobs:
           echo "▶ Switching nginx upstream → port $NEW_PORT"
           mkdir -p "$(dirname "$NGINX_UPSTREAM")"
           printf 'upstream leadership_careers_app {\n    server 127.0.0.1:%s;\n}\n' "$NEW_PORT" > "$NGINX_UPSTREAM"
+
+          NGINX_SITE="/etc/nginx/conf.d/msm-leadership-site.conf"
+          if [ ! -s "$NGINX_SITE" ]; then
+            echo "▶ Writing missing site vhost config to $NGINX_SITE..."
+            cat << 'SITECONF' > "$NGINX_SITE"
+server {
+    listen 80;
+    server_name www.msmunify.com msmunify.com;
+
+    location /hirethenextleadership {
+        proxy_pass http://leadership_careers_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    location / {
+        proxy_pass http://leadership_careers_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+}
+SITECONF
+          fi
+
           nginx -t
           nginx -s reload
           echo "✅ nginx reloaded — traffic routed to $NEW_NAME"
