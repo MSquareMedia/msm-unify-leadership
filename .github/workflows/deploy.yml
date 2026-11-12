@@ -279,30 +279,27 @@ jobs:
           NGINX_SITE="/etc/nginx/conf.d/msm-leadership-site.conf"
           if [ ! -s "$NGINX_SITE" ]; then
             echo "▶ Writing missing site vhost config to $NGINX_SITE..."
-            cat << 'SITECONF' > "$NGINX_SITE"
-server {
-    listen 80;
-    server_name www.msmunify.com msmunify.com;
-
-    location /hirethenextleadership {
-        proxy_pass http://leadership_careers_app;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-    }
-
-    location / {
-        proxy_pass http://leadership_careers_app;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-    }
-}
-SITECONF
+            printf '%s\n' \
+              'server {' \
+              '    listen 80;' \
+              '    server_name www.msmunify.com msmunify.com;' \
+              '    location /hirethenextleadership {' \
+              '        proxy_pass http://leadership_careers_app;' \
+              '        proxy_http_version 1.1;' \
+              '        proxy_set_header Host $host;' \
+              '        proxy_set_header X-Real-IP $remote_addr;' \
+              '        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;' \
+              '        proxy_set_header X-Forwarded-Proto https;' \
+              '    }' \
+              '    location / {' \
+              '        proxy_pass http://leadership_careers_app;' \
+              '        proxy_http_version 1.1;' \
+              '        proxy_set_header Host $host;' \
+              '        proxy_set_header X-Real-IP $remote_addr;' \
+              '        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;' \
+              '        proxy_set_header X-Forwarded-Proto https;' \
+              '    }' \
+              '}' > "$NGINX_SITE"
           fi
 
           nginx -t
