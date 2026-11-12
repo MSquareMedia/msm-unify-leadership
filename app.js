@@ -470,6 +470,17 @@
   });
   go(restoredQ > 0 && restoredQ < QID.length - 1 && checked("role") ? restoredQ : 0, "fwd");
 
+  // Safety net: on a public address with no backend connected, never show a fake "sent" screen.
+  var PREVIEW_HOST = location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || /\.vercel\.app$/.test(location.hostname);
+  if (!CFG.applyEndpoint && !PREVIEW_HOST) {
+    var card = $("#appCard");
+    $$("#appForm, #path, #seatChip, #success", card).forEach(function (el) { el.style.display = "none"; });
+    var note = document.createElement("div");
+    note.className = "closed-note";
+    note.innerHTML = '<i class="ph-bold ph-hourglass-medium"></i><h3>Applications open shortly.</h3><p>We are connecting our application form. Please check back soon, or use the regular careers page in the meantime.</p><a class="btn btn-ink btn-sm" href="https://www.msmunify.com/career/" target="_blank" rel="noopener">Other applications <i class="ph-bold ph-arrow-up-right"></i></a>';
+    card.appendChild(note);
+  }
+
   
   /* ---------- Destinations explorer ---------- */
   var DEST = [

@@ -12,3 +12,9 @@ apps-script/MSM-Leadership-Applications.gs
 .DS_Store
 __pycache__/
 node_modules/
+apps-script/test/out/
+
+# Unused source photos kept locally only
+assets/dest-*.png
+assets/work-india-office.webp
+assets/hero-vancouver-team.webp
