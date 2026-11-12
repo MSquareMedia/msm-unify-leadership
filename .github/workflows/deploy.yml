@@ -205,8 +205,8 @@ jobs:
           # Upstream file configured in host nginx
           NGINX_UPSTREAM="/etc/nginx/conf.d/msm-leadership-upstream.conf"
 
-          BLUE_PORT=3001
-          GREEN_PORT=3002
+          BLUE_PORT=8201
+          GREEN_PORT=8202
           BLUE="msm-leadership-blue"
           GREEN="msm-leadership-green"
           DRAIN_SECONDS=15
