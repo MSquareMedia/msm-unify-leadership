@@ -30,7 +30,7 @@ This writes `roles.js`, `roles/<id>/index.html`, `og/*.png`, `sitemap.xml`, `rob
 Set the public address before a production build:
 
 ```json
-{ "siteUrl": "https://www.msmunify.com/leadership/" }
+{ "siteUrl": "https://www.msmunify.com/hirethenextleadership/" }
 ```
 
 in `build/site.json`. Every canonical link, share image and caption uses it.

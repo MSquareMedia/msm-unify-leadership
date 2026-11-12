@@ -1,0 +1,355 @@
+name: CI/CD — Build & Deploy — MSM-Unify-Leadership-Careers
+
+on:
+  push:
+    branches:
+      - main       # production
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write  # Critical: required for Azure OIDC federated token exchange
+  contents: read   # Checkout source
+  packages: write  # Push to ghcr.io
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # JOB 1 — Validate & Test Build
+  # ─────────────────────────────────────────────────────────────────────────
+  validate:
+    name: 🧪 Validate & Test Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install build dependencies
+        run: |
+          pip install Pillow
+
+      - name: Validate build generator
+        run: |
+          # Executes build/build.py to verify roles.json, gallery.json, and OG generation
+          python build/build.py
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js config.js
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # SECURITY SCAN 1 — Gitleaks (Secrets)
+  # ─────────────────────────────────────────────────────────────────────────
+  gitleaks:
+    name: 🔑 Gitleaks (Secrets)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Gitleaks
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.24.0/gitleaks_8.24.0_linux_x64.tar.gz | sudo tar -xz -C /usr/local/bin gitleaks
+
+      - name: Run Gitleaks secret scanner
+        run: |
+          gitleaks detect --source=. --config=.gitleaks.toml --verbose --redact || gitleaks detect --source=. --verbose --redact
+        continue-on-error: true
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # SECURITY SCAN 2 — Trivy (Vulnerabilities)
+  # ─────────────────────────────────────────────────────────────────────────
+  trivy:
+    name: 🛡️ Trivy (Vulnerabilities)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@v0.36.0
+        continue-on-error: true
+        with:
+          scan-type: "fs"
+          ignore-unfixed: true
+          format: "table"
+          severity: "CRITICAL,HIGH"
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # JOB 2 — Build & Push Docker image to GHCR
+  # ─────────────────────────────────────────────────────────────────────────
+  build:
+    name: 🐳 Build & Push Image
+    runs-on: ubuntu-latest
+    needs: validate
+    outputs:
+      image_tag: ${{ steps.meta.outputs.tags }}
+      short_sha: ${{ steps.sha.outputs.short }}
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Lowercase image name
+        run: echo "IMAGE_NAME=$(echo '${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+
+      - name: Set short SHA
+        id: sha
+        run: echo "short=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=sha-,format=short
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+          labels: |
+            org.opencontainers.image.title=MSM Unify Leadership Careers
+            org.opencontainers.image.description=MSM Unify Leadership Careers microsite
+            org.opencontainers.image.vendor=MSquareMedia
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            SITE_URL=${{ vars.SITE_URL || secrets.SITE_URL }}
+            APPLY_ENDPOINT=${{ vars.APPLY_ENDPOINT || secrets.APPLY_ENDPOINT }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # JOB 3 — Deploy to Azure Linux VM via Azure OIDC & Run Command
+  # ─────────────────────────────────────────────────────────────────────────
+  deploy:
+    name: 🚀 Deploy to Azure VM
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+      url: ${{ vars.APP_URL }}
+
+    steps:
+      - name: Lowercase image name
+        run: echo "IMAGE_NAME=$(echo '${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+
+      - name: Set deploy image tag
+        id: tag
+        run: |
+          SHORT_SHA="${{ needs.build.outputs.short_sha }}"
+          echo "image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+
+      # ── Step 1: Azure OIDC Login ─────────────────────────────────────────
+      - name: Azure Login via OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # ── Step 2: Prepare Deployment Script ────────────────────────────────
+      - name: Generate Blue/Green Script
+        id: script
+        env:
+          IMAGE: ${{ steps.tag.outputs.image }}
+          REGISTRY: ${{ env.REGISTRY }}
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          cat << 'EOF' > deploy.sh
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          # Trap errors to notify CI runner
+          trap 'echo "###DEPLOY_RESULT:FAILED###"; exit 1' ERR
+
+          REGISTRY="__REGISTRY__"
+          IMAGE="__IMAGE__"
+          GHCR_USER="__GHCR_USER__"
+          GHCR_TOKEN="__GHCR_TOKEN__"
+
+          # Upstream file configured in host nginx
+          NGINX_UPSTREAM="/etc/nginx/conf.d/msm-leadership-upstream.conf"
+
+          BLUE_PORT=3001
+          GREEN_PORT=3002
+          BLUE="msm-leadership-blue"
+          GREEN="msm-leadership-green"
+          DRAIN_SECONDS=15
+
+          run_container() {
+            docker run -d \
+              --name "$1" \
+              --restart unless-stopped \
+              --memory 512m \
+              --cpus 0.5 \
+              -p "127.0.0.1:$2:3000" \
+              "$IMAGE"
+          }
+
+          echo "▶ Authenticating to GHCR..."
+          echo "$GHCR_TOKEN" | docker login "$REGISTRY" --username "$GHCR_USER" --password-stdin
+
+          echo "▶ Pulling image: $IMAGE"
+          docker pull "$IMAGE"
+
+          # Determine active / idle slot
+          if docker ps --filter "name=${BLUE}" --filter "status=running" -q | grep -q .; then
+            ACTIVE_NAME="$BLUE"; ACTIVE_PORT=$BLUE_PORT
+            NEW_NAME="$GREEN";   NEW_PORT=$GREEN_PORT
+            echo "▶ Active slot: blue → deploying to: green (port $GREEN_PORT)"
+          elif docker ps --filter "name=${GREEN}" --filter "status=running" -q | grep -q .; then
+            ACTIVE_NAME="$GREEN"; ACTIVE_PORT=$GREEN_PORT
+            NEW_NAME="$BLUE";     NEW_PORT=$BLUE_PORT
+            echo "▶ Active slot: green → deploying to: blue (port $BLUE_PORT)"
+          else
+            ACTIVE_NAME=""
+            NEW_NAME="$BLUE"; NEW_PORT=$BLUE_PORT
+            echo "▶ No active slot — bootstrapping blue (port $BLUE_PORT)"
+          fi
+
+          # Clean target container slot
+          docker stop "$NEW_NAME" 2>/dev/null || true
+          docker rm   "$NEW_NAME" 2>/dev/null || true
+
+          echo "▶ Starting $NEW_NAME on internal port $NEW_PORT..."
+          run_container "$NEW_NAME" "$NEW_PORT"
+
+          # Health-check the container internally before switching traffic
+          echo "▶ Health-checking $NEW_NAME..."
+          HEALTHY=false
+          for i in $(seq 1 15); do
+            STATUS=$(curl -o /dev/null -s -w "%{http_code}" "http://127.0.0.1:${NEW_PORT}/api/health" || true)
+            echo "  Attempt $i/15 — HTTP $STATUS"
+            if [ "$STATUS" = "200" ]; then
+              HEALTHY=true
+              echo "✅ $NEW_NAME is healthy"
+              break
+            fi
+            sleep 2
+          done
+
+          if [ "$HEALTHY" != "true" ]; then
+            echo "❌ Health check failed — rolling back"
+            docker stop "$NEW_NAME" 2>/dev/null || true
+            docker rm   "$NEW_NAME" 2>/dev/null || true
+            echo "###DEPLOY_RESULT:FAILED###"
+            exit 1
+          fi
+
+          # Switch host Nginx upstream (atomic reload)
+          echo "▶ Switching nginx upstream → port $NEW_PORT"
+          mkdir -p "$(dirname "$NGINX_UPSTREAM")"
+          printf 'upstream leadership_careers_app {\n    server 127.0.0.1:%s;\n}\n' "$NEW_PORT" > "$NGINX_UPSTREAM"
+          nginx -t
+          nginx -s reload
+          echo "✅ nginx reloaded — traffic routed to $NEW_NAME"
+
+          # Drain in-flight connections
+          echo "▶ Draining in-flight requests ($DRAIN_SECONDS s)..."
+          sleep "$DRAIN_SECONDS"
+
+          if [ -n "$ACTIVE_NAME" ]; then
+            echo "▶ Stopping old slot: $ACTIVE_NAME"
+            docker stop "$ACTIVE_NAME" 2>/dev/null || true
+            docker rm   "$ACTIVE_NAME" 2>/dev/null || true
+          fi
+
+          echo "▶ Pruning unused docker images..."
+          docker image prune -f
+
+          echo "✅ Zero-downtime deployment complete:"
+          docker ps --filter "name=msm-leadership" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+          echo "###DEPLOY_RESULT:SUCCESS###"
+          EOF
+
+          # Substitute variables securely
+          sed -i "s|__REGISTRY__|${REGISTRY}|g" deploy.sh
+          sed -i "s|__IMAGE__|${IMAGE}|g" deploy.sh
+          sed -i "s|__GHCR_USER__|${GHCR_USER}|g" deploy.sh
+          sed -i "s|__GHCR_TOKEN__|${GHCR_TOKEN}|g" deploy.sh
+
+      # ── Step 3: Execute on VM via Azure Run Command ───────────────────────
+      - name: Deploy via Azure Run Command
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            echo "▶ Sending deployment script to Azure VM: ${{ secrets.AZURE_VM_NAME }}..."
+            
+            RESPONSE=$(az vm run-command invoke \
+              --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+              --name "${{ secrets.AZURE_VM_NAME }}" \
+              --command-id RunShellScript \
+              --scripts @deploy.sh \
+              --output json)
+
+            # Extract formatted stdout/stderr from JSON
+            MESSAGE=$(echo "$RESPONSE" | jq -r '.value[0].message // ""')
+            echo "$MESSAGE"
+
+            # Check for success token
+            if ! echo "$MESSAGE" | grep -q "###DEPLOY_RESULT:SUCCESS###"; then
+              echo "::error::Deployment failed on Azure VM!"
+              exit 1
+            fi
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # JOB 4 — Health Check
+  # ─────────────────────────────────────────────────────────────────────────
+  healthcheck:
+    name: 🩺 Health Check
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Wait for external endpoint (max 60 s)
+        run: |
+          TARGET_URL="${{ vars.APP_URL || secrets.APP_URL || 'https://www.msmunify.com/hirethenextleadership/' }}"
+          echo "Checking $TARGET_URL ..."
+          for i in $(seq 1 12); do
+            STATUS=$(curl -o /dev/null -s -w "%{http_code}" -L "$TARGET_URL" || true)
+            echo "Attempt $i — HTTP $STATUS"
+            if [ "$STATUS" = "200" ] || [ "$STATUS" = "301" ] || [ "$STATUS" = "302" ]; then
+              echo "✅ Public endpoint is online and healthy!"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "❌ Endpoint failed to respond with 200 within 60 s"
+          exit 1
