@@ -92,6 +92,27 @@ open(P('index.html'), 'w', encoding='utf-8').write(_t[:_a] + '\n' + rows_html + 
 
 # ---------- HTML ----------
 tpl = open(P('index.html'), encoding='utf-8').read()
+
+# ---------- Versioned asset paths ----------
+# CDNs and browsers keep scripts and stylesheets for up to 30 days. Each build copies the four site files into
+# v/<hash>/ and points every page at that folder, so a new deploy always gets new URLs and nothing stale is served.
+# A path (and not a ?v= query string) is used because many CDNs ignore query strings when caching.
+import hashlib, shutil
+tpl = re.sub(r'v/[0-9a-f]{10}/(styles\.css|config\.js|roles\.js|app\.js)', r'\1', tpl)   # undo a previous build's rewrite
+ASSET_FILES = ('styles.css', 'config.js', 'roles.js', 'app.js')
+_h = hashlib.sha1()
+for _f in ASSET_FILES:
+    _h.update(open(P(_f), 'rb').read())
+VER = _h.hexdigest()[:10]
+os.makedirs(P('v', VER), exist_ok=True)
+for _f in ASSET_FILES:
+    shutil.copy(P(_f), P('v', VER, _f))
+open(P('v', '.gitignore'), 'w').write('*\n')   # v/ is generated, so it keeps itself out of git
+
+def version(s):
+    return re.sub(r'((?:href|src)=")((?:\.\./\.\./)?)(styles\.css|config\.js|roles\.js|app\.js)"',
+                  lambda m: '%s%sv/%s/%s"' % (m.group(1), m.group(2), VER, m.group(3)), s)
+
 M0, M1 = '<!--META-->', '<!--/META-->'
 a, b = tpl.index(M0), tpl.index(M1)
 
@@ -107,7 +128,7 @@ def meta(title, desc, url, image):
 
 home_meta = meta('Leadership Careers | MSM Unify', 'Eleven leadership seats are open at MSM Unify. Read the story behind each role and apply.', BASE, BASE + 'og/home.png')
 home_meta = home_meta.replace('<meta property="og:title" content="Leadership Careers | MSM Unify">', '<meta property="og:title" content="Lead the team that reaches 5 million learners | MSM Unify">').replace('<meta name="twitter:title" content="Leadership Careers | MSM Unify">', '<meta name="twitter:title" content="Lead the team that reaches 5 million learners | MSM Unify">')
-home = tpl[:a] + home_meta + tpl[b:]
+home = version(tpl[:a] + home_meta + tpl[b:])
 open(P('index.html'), 'w', encoding='utf-8').write(home)
 
 def prefix(s):
@@ -117,7 +138,7 @@ for r in roles:
     url = BASE + 'roles/%s/' % r['id']
     page = tpl[:a] + meta(r['share']['title'] + ' | MSM Unify', r['share']['desc'], url, BASE + 'og/%s.png' % r['id']).replace('og:image:alt" content="', 'og:image:alt" content="') + tpl[b:]
     page = page.replace('<script src="config.js">', '<script>window.OPEN_ROLE=%s;</script>\n<script src="config.js">' % json.dumps(r['id']), 1)
-    page = prefix(page)
+    page = version(prefix(page))
     os.makedirs(P('roles', r['id']), exist_ok=True)
     open(P('roles', r['id'], 'index.html'), 'w', encoding='utf-8').write(page)
 
