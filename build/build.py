@@ -93,6 +93,13 @@ open(P('index.html'), 'w', encoding='utf-8').write(_t[:_a] + '\n' + rows_html + 
 # ---------- HTML ----------
 tpl = open(P('index.html'), encoding='utf-8').read()
 
+# ---------- Seat count ----------
+# The number of open seats follows roles.json, so adding a role never leaves a stale count on the home page.
+_W = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen']
+_n = _W[len(roles)] if len(roles) < len(_W) else str(len(roles))
+tpl = re.sub(r'\b(?:%s) (leadership seats|seats\.)' % '|'.join(_W), lambda m: _n + ' ' + m.group(1), tpl)
+tpl = re.sub(r'<b>\d+</b>(<span>open leadership seats)', lambda m: '<b>%d</b>%s' % (len(roles), m.group(1)), tpl)
+
 # ---------- Versioned asset paths ----------
 # CDNs and browsers keep scripts and stylesheets for up to 30 days. Each build copies the four site files into
 # v/<hash>/ and points every page at that folder, so a new deploy always gets new URLs and nothing stale is served.
