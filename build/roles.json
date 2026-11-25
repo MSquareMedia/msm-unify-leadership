@@ -119,6 +119,74 @@
     }
   },
   {
+    "id": "president-public-sector",
+    "title": "President, Public Sector",
+    "fn": "Business head",
+    "icon": "ph-bank",
+    "hook": "Build MSM Unify's government business in India: tenders, alliances and skilling programs at national scale.",
+    "chips": [
+      "India, national role",
+      "Tenders and alliances"
+    ],
+    "meta": "India, national role. Public Sector business",
+    "story": [
+      "MSM Unify's mission is to empower 5 million learners by 2028, in partnership with industry, institutions and government. In India, government is one of the largest routes to those learners: national and state skilling missions, public universities and public sector enterprises each commission education and workforce programs at scale.",
+      "This role builds that business from the first conversation. The President wins tenders and expressions of interest, forms partnerships and alliances with central and state departments, and turns skilling and workforce mandates into programs that MSM Unify designs, delivers and reports on. The work is long-cycle and relationship-led, and it runs on procurement discipline: eligibility, compliance, bid, award, delivery and renewal."
+    ],
+    "owns": [
+      "The India public sector strategy: which ministries, states, agencies and public enterprises to pursue, in what order, and with which offer",
+      "The tender and bid engine: tracking opportunities on GeM and state e-procurement portals, deciding bid or no-bid, and leading RFP, EoI and proposal responses through to award",
+      "Government partnerships and alliances, from MoUs with state skill missions and departments to joint programs with national bodies, sector skill councils and public universities",
+      "Skilling and upskilling programs for government: design, delivery partners, learner outcomes and reporting that stand up to audit",
+      "Registrations, empanelments and compliance that keep MSM Unify eligible to bid, with Legal and Finance",
+      "Consortium and delivery partnerships with industry, training providers and institutions, so every bid can be delivered as well as won",
+      "The public sector P&L: revenue, margin, collections and receivables across long payment cycles",
+      "A small, senior team for bids, government relations and program delivery, built and held to KPIs"
+    ],
+    "milestones": [
+      {
+        "when": "First 90 days",
+        "text": "Map the public sector landscape, choose the priority ministries, states and agencies, and put a live bid pipeline and a compliance checklist in place."
+      },
+      {
+        "when": "Month 6",
+        "text": "First bids submitted, a first MoU or alliance in negotiation, and registrations and empanelments in order."
+      },
+      {
+        "when": "Month 12",
+        "text": "First government programs awarded and in delivery, with outcomes reported to the department, and a repeatable pipeline for year two."
+      }
+    ],
+    "bring": [
+      "15 or more years in government business, public sector consulting, skilling, education or workforce development, with 5 or more leading a business or a vertical",
+      "A record of winning government tenders, empanelments or partnerships, and delivering them through to payment",
+      "Working knowledge of how Indian government buys: GeM and state e-procurement, RFPs and EoIs, eligibility criteria, empanelment, and MoU and PPP structures",
+      "Relationships across central ministries, state skill missions or public sector bodies, built and kept with a clean record",
+      "Familiarity with the skilling ecosystem, including Skill India, NSDC, sector skill councils and the National Education Policy",
+      "Comfort with compliance, audit and long payment cycles, and the patience that long sales cycles ask for",
+      "Based in India, ready to travel often to Delhi and state capitals"
+    ],
+    "why": "A new business to build from the ground up, direct access to leadership, and a mission of 5 million learners by 2028 that public programs can move at scale.",
+    "share": {
+      "title": "President, Public Sector",
+      "desc": "Build MSM Unify's government business in India: tenders, state and central partnerships, and skilling programs at national scale. A new business to build, with direct access to leadership."
+    },
+    "thanks": {
+      "lead": "This seat builds MSM Unify's government business in India, winning tenders, forming alliances with departments and agencies, and delivering skilling programs that stand up to audit.",
+      "ready": "Come ready to name the first three departments or agencies you would approach, and what you would offer each."
+    },
+    "ninety": {
+      "q": "Which departments or agencies would you approach first, and what would you change in your first 90 days?",
+      "chips": [
+        "Map ministries, states and agencies",
+        "Build the live tender pipeline",
+        "Set the eligibility and empanelment checklist",
+        "Open the first alliance conversations",
+        "Hire the bid and program team"
+      ]
+    }
+  },
+  {
     "id": "ctpo",
     "title": "Chief Technology and Product Officer",
     "fn": "C-suite",

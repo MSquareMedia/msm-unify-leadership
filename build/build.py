@@ -27,7 +27,7 @@ W, H = 1200, 630
 RED, INK, WHITE = (232, 37, 42), (17, 17, 17), (255, 255, 255)
 F = lambda w, s: ImageFont.truetype(P('fonts', 'Poppins-%s.ttf' % w), s)
 logo = Image.open(P('assets', 'logo-wide.png')).convert('RGBA')
-photos = {'home': 'pb-team-outdoor.webp', 'president-gsm': 'pb-global-walk.webp', 'president-enterprise': 'pb-leaders-group.webp', 'ctpo': 'pb-technology.webp', 'csto': 'pb-executive.webp', 'president-grad': 'pb-team-table.webp', 'president-eduverse': 'pb-partnerships.webp', 'director-b2c': 'pb-conversation.webp', 'president-campusos': 'pb-team-circle.webp', 'director-gsm-sa-gmo': 'pb-mentor.webp', 'director-gsm-sea-gmo': 'pb-working-pair.webp', 'director-gsm-sea-marketplace': 'pb-team-table.webp'}
+photos = {'home': 'pb-team-outdoor.webp', 'president-gsm': 'pb-global-walk.webp', 'president-enterprise': 'pb-leaders-group.webp', 'president-public-sector': 'pb-leader-woman.webp', 'ctpo': 'pb-technology.webp', 'csto': 'pb-executive.webp', 'president-grad': 'pb-team-table.webp', 'president-eduverse': 'pb-partnerships.webp', 'director-b2c': 'pb-conversation.webp', 'president-campusos': 'pb-team-circle.webp', 'director-gsm-sa-gmo': 'pb-mentor.webp', 'director-gsm-sea-gmo': 'pb-working-pair.webp', 'director-gsm-sea-marketplace': 'pb-team-table.webp'}
 
 def wrap(draw, text, font, maxw):
     lines, cur = [], ''
@@ -126,7 +126,7 @@ def meta(title, desc, url, image):
       '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="%s">\n'
       '<meta name="twitter:description" content="%s">\n<meta name="twitter:image" content="%s">\n') % (t, d, url, t, d, url, image, t, t, d, image)
 
-home_meta = meta('Leadership Careers | MSM Unify', 'Eleven leadership seats are open at MSM Unify. Read the story behind each role and apply.', BASE, BASE + 'og/home.png')
+home_meta = meta('Leadership Careers | MSM Unify', 'Twelve leadership seats are open at MSM Unify. Read the story behind each role and apply.', BASE, BASE + 'og/home.png')
 home_meta = home_meta.replace('<meta property="og:title" content="Leadership Careers | MSM Unify">', '<meta property="og:title" content="Lead the team that reaches 5 million learners | MSM Unify">').replace('<meta name="twitter:title" content="Leadership Careers | MSM Unify">', '<meta name="twitter:title" content="Lead the team that reaches 5 million learners | MSM Unify">')
 home = version(tpl[:a] + home_meta + tpl[b:])
 open(P('index.html'), 'w', encoding='utf-8').write(home)
